@@ -8,6 +8,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * This activity is a base activity for the four main app screens:
+ * Posts feed, Map, Schedule, Profile. This class manages transition
+ * between the screens, which are displayed using fragments. The transition
+ * is done by clicking on the respective icons in the bottom navigation bar.
+ */
 public class HomeActivity extends AppCompatActivity {
 
     @Override

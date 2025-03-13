@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/fragment_layout"
+    android:paddingTop="25dp"
+    tools:context=".SignUpFragment">
+
+    <TextView
+        android:id="@+id/taglineText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join the Game"
+        android:textSize="45sp" />
+
+    <TextView
+        android:id="@+id/createAccountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="60dp"
+        android:text="create a new account to find your sport player"
+        android:textColor="#606060"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/firstNameInput"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:paddingLeft="12dp"
+        android:ems="10"
+        android:background="@drawable/input_layout"
+        android:inputType="text"
+        android:layout_marginBottom="25dp"
+        android:hint="First name" />
+
+    <EditText
+        android:id="@+id/lastNameInput"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:paddingLeft="12dp"
+        android:ems="10"
+        android:background="@drawable/input_layout"
+        android:inputType="text"
+        android:layout_marginBottom="25dp"
+        android:hint="Last Name" />
+
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:paddingLeft="12dp"
+        android:ems="10"
+        android:background="@drawable/input_layout"
+        android:inputType="text"
+        android:layout_marginBottom="25dp"
+        android:hint="Enter your email" />
+
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:paddingLeft="12dp"
+        android:ems="10"
+        android:background="@drawable/input_layout"
+        android:inputType="textPassword"
+        android:layout_marginBottom="25dp"
+        android:hint="Enter your password" />
+
+    <EditText
+        android:id="@+id/confirmPasswordInput"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:paddingLeft="12dp"
+        android:ems="10"
+        android:background="@drawable/input_layout"
+        android:inputType="textPassword"
+        android:layout_marginBottom="25dp"
+        android:hint="Confirm password" />
+
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="35dp"
+        android:text="I agree to the Terms and Conditions"
+        android:textColor="#606060" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_layouts"
+        android:text="Sign Up" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/hasAccountOptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? " />
+
+        <TextView
+            android:id="@+id/logInOptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:text="Log In "
+            android:textColor="#4BAC3A"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,6 +3,9 @@
     <style name="Base.Theme.PlayPal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#F0F3</item>
     </style>
 
     <style name="Theme.PlayPal" parent="Base.Theme.PlayPal" />

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/postIcon"
+        android:enabled="true"
+        android:icon="@drawable/test_post_icon"
+        android:title="Post Icon"
+        android:visible="true" />
+    <item
+        android:id="@+id/scheduleIcon"
+        android:enabled="true"
+        android:icon="@drawable/test_schedule_icon"
+        android:title="Schedule Icon"
+        android:visible="true" />
+    <item
+        android:id="@+id/mapIcon"
+        android:enabled="true"
+        android:icon="@drawable/test_map_icon"
+        android:title="Map Icon"
+        android:visible="true" />
+    <item
+        android:id="@+id/profileIcon"
+        android:enabled="true"
+        android:icon="@drawable/test_profile_icon"
+        android:title="Profile Icon"
+        android:visible="true" />
+</menu>

@@ -19,17 +19,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     public PostAdapter(Context context, ArrayList<PostModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        System.out.println(">>post adapter created");
     }
 
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        System.out.println(">>> called onCreateViewHolder");
         View view = LayoutInflater.from(context).inflate(R.layout.individual_post_layout, parent, false);
         return new PostViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
+        System.out.println(">>> called onBindViewHolder");
         PostModel post = arrayList.get(position);
 
         // Set profile image
@@ -57,7 +60,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 7;
     }
 }
 class PostViewHolder extends RecyclerView.ViewHolder {

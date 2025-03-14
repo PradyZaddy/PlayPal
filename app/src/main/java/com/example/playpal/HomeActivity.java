@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
 
-        PostsScreenFragment postsScreenFragment = new PostsScreenFragment();
+        PostsScreenFragment postsScreenFragment = new PostsScreenFragment(this);
         ScheduleScreenFragment scheduleScreenFragment = new ScheduleScreenFragment();
         MapScreenFragment mapScreenFragment = new MapScreenFragment();
         ProfileScreenFragment profileScreenFragment = new ProfileScreenFragment();
@@ -50,12 +50,16 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.toString()) {
                 case "Profile Icon":
                     setCurrentFragment(profileScreenFragment);
+                    break;
                 case "Schedule Icon":
                     setCurrentFragment(scheduleScreenFragment);
+                    break;
                 case "Post Icon":
                     setCurrentFragment(postsScreenFragment);
+                    break;
                 case "Map Icon":
                     setCurrentFragment(mapScreenFragment);
+                    break;
             }
             return true;
         });
@@ -66,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
      * @param fragment to transition to
      */
     private void setCurrentFragment(Fragment fragment) {
+        System.out.println(">>>setting " + fragment + " in home activity");
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
     }
 }

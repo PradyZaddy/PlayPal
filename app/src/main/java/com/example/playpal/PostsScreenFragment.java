@@ -3,22 +3,38 @@ package com.example.playpal;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PostsScreenFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class PostsScreenFragment extends Fragment {
 
+    ArrayList<PostModel> arrayList = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_posts_screen, container, false);
+        View view =  inflater.inflate(R.layout.fragment_posts_screen, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView1);
+
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+        arrayList.add(new PostModel(R.drawable.test_profile_icon, R.drawable.button_layouts, "Oleh", "@bigO", "some dude...", "Tennis", "5 Mar, 7:30 PM (Monday)", "TCC", "Some description Some description Some description Some description Some description Some description"));
+
+        PostAdapter adapter=new PostAdapter(getActivity().getApplicationContext(), arrayList);
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        return view;
     }
 }

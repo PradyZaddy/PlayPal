@@ -14,10 +14,9 @@ import java.util.ArrayList;
 
 public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
-    //TODO: replace Object with PostModel
-    ArrayList<Object> arrayList;
+    ArrayList<PostModel> arrayList;
     Context context;
-    public PostAdapter(Context context, ArrayList<Object> arrayList) {
+    public PostAdapter(Context context, ArrayList<PostModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -26,14 +25,35 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.individual_post_layout, parent, false);
-        PostViewHolder viewHolder = new PostViewHolder(view); 
-        return viewHolder;
+        return new PostViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
+        PostModel post = arrayList.get(position);
 
+        // Set profile image
+        holder.imageViewProfileAvatar.setImageResource(post.getProfileImage());
+
+        // Set profile name and nickname
+        holder.textViewProfileName.setText(post.getProfileName());
+        holder.textViewProfileNickname.setText(post.getProfileNickname());
+
+        // Set profile brief description
+        holder.textViewProfileBriefDescription.setText(post.getProfileBriefDescription());
+
+        // Set sport type and proficiency image
+        holder.textViewSportType.setText(post.getSportType());
+        holder.imageViewSportProficiency.setImageResource(post.getSportProficiencyImage());
+
+        // Set meeting time and place
+        holder.textViewMeetingTime.setText(post.getMeetingTime());
+        holder.textViewMeetingPlace.setText(post.getMeetingPlace());
+
+        // Set post description
+        holder.textViewPostDescription.setText(post.getPostDescription());
     }
+
 
     @Override
     public int getItemCount() {

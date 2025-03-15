@@ -8,8 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
-public class LoginActivity extends AppCompatActivity {
-
+public class LoginActivity extends AppCompatActivity
+{
 LoginFragment loginFragment;
 FrameLayout frameLayout;
     @Override

@@ -44,7 +44,7 @@
         android:paddingLeft="12dp"
         android:ems="10"
         android:background="@drawable/input_layout"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:hint="Enter your password" />
 
     <TextView

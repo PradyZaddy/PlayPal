@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageViewProfileAvatar"
+                android:layout_width="70dp"
+                android:layout_height="57dp"
+                android:layout_weight="0.13"
+                android:padding="5dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <LinearLayout
+                android:id="@+id/linearVerticalLayoutPostText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.87"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linearHorizontalLayoutProfileNameNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewProfileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name" />
+
+                    <TextView
+                        android:id="@+id/textViewProfileNickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\@profile_nickname" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewProfileBriefDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="profile description..." />
+
+                <TextView
+                    android:id="@+id/textViewSportType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sport type" />
+
+                <ImageView
+                    android:id="@+id/imageViewSportProficiency"
+                    android:layout_width="54dp"
+                    android:layout_height="10dp"
+                    android:baselineAlignBottom="false"
+                    app:srcCompat="@drawable/button_layouts" />
+
+                <TextView
+                    android:id="@+id/textViewMeetingTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Time" />
+
+                <TextView
+                    android:id="@+id/textViewMeetingPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Place" />
+
+                <TextView
+                    android:id="@+id/textViewPostDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This is our Post description. This is our Post description. This is our Post description. This is our Post description." />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -52,16 +52,8 @@ public class SignUpFragment extends Fragment
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailText.getText().toString();
-                String password = passwordText.getText().toString();
-                String confirmPassword = confirmPasswordText.getText().toString();
-
-                if (!email.isEmpty() && !password.isEmpty() && password.equals(confirmPassword) && checkBox.isChecked())
-                {
-                    signUpWithEmailAndPassword(email, password);
-                } else {
-                    Toast.makeText(getContext(), "Please enter all the values", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(getContext(), HomeActivity.class);
+                startActivity(intent);
             }
         });
 

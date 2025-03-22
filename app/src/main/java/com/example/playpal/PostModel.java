@@ -1,5 +1,4 @@
 package com.example.playpal;
-
 public class PostModel
 {
     String name;
@@ -67,3 +66,4 @@ public class PostModel
         return yesButtonImageId;
     }
 }
+

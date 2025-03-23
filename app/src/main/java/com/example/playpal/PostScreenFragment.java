@@ -29,6 +29,11 @@ public class PostScreenFragment extends Fragment {
         postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
         postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
         postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
+        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
+        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
+        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
+        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
+        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
 
         adapter = new PostAdapter(getContext(), postList);
         recyclerView.setAdapter(adapter);

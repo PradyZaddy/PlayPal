@@ -3,25 +3,19 @@
     <item
         android:id="@+id/postIcon"
         android:enabled="true"
-        android:icon="@drawable/test_post_icon"
+        android:icon="@drawable/home"
         android:title="Post Icon"
-        android:visible="true" />
-    <item
-        android:id="@+id/scheduleIcon"
-        android:enabled="true"
-        android:icon="@drawable/test_schedule_icon"
-        android:title="Schedule Icon"
         android:visible="true" />
     <item
         android:id="@+id/mapIcon"
         android:enabled="true"
-        android:icon="@drawable/test_map_icon"
+        android:icon="@drawable/map"
         android:title="Map Icon"
         android:visible="true" />
     <item
         android:id="@+id/profileIcon"
         android:enabled="true"
-        android:icon="@drawable/test_profile_icon"
+        android:icon="@drawable/profile"
         android:title="Profile Icon"
         android:visible="true" />
 </menu>

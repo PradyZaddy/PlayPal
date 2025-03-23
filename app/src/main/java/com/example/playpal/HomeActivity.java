@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity
                     setCurrentFragment(scheduleScreenFragment);
                     break;
                 case "Post Icon":
-                    setCurrentFragment(addedEditProfileFragment);
+                    setCurrentFragment(postsScreenFragment);
                     break;
                 case "Map Icon":
                     setCurrentFragment(mapScreenFragment);

@@ -1,24 +1,19 @@
 package com.example.playpal;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.Fragment;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class HomeActivity extends AppCompatActivity
 {
-    PostFragment postFragment;
+    PostScreenFragment postFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +29,7 @@ public class HomeActivity extends AppCompatActivity
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
 
-        PostsScreenFragment postsScreenFragment = new PostsScreenFragment(this);
+        PostScreenFragment postsScreenFragment = new PostScreenFragment();
         ScheduleScreenFragment scheduleScreenFragment = new ScheduleScreenFragment();
         MapScreenFragment mapScreenFragment = new MapScreenFragment();
         ProfileScreenFragment profileScreenFragment = new ProfileScreenFragment();

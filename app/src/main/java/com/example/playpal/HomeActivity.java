@@ -34,6 +34,10 @@ public class HomeActivity extends AppCompatActivity
         MapScreenFragment mapScreenFragment = new MapScreenFragment();
         ProfileScreenFragment profileScreenFragment = new ProfileScreenFragment();
 
+
+        // just for reference
+        AddedEditProfileFragment addedEditProfileFragment = new AddedEditProfileFragment();
+
         setCurrentFragment(postsScreenFragment);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -49,7 +53,7 @@ public class HomeActivity extends AppCompatActivity
                     setCurrentFragment(scheduleScreenFragment);
                     break;
                 case "Post Icon":
-                    setCurrentFragment(postsScreenFragment);
+                    setCurrentFragment(addedEditProfileFragment);
                     break;
                 case "Map Icon":
                     setCurrentFragment(mapScreenFragment);

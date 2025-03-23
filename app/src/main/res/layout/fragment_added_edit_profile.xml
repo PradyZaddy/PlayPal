@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".AddedEditProfileFragment">
 
-    <!-- Scrollable content inside ScrollView -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Profile Picture Row -->
+            <!-- Profile Picture and Upload Button -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="2"
                     android:background="@drawable/newpfpbutton"
                     android:text="Upload new profile picture"
@@ -69,8 +68,6 @@
                     android:id="@+id/nameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
                     android:hint="Enter name"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
@@ -88,8 +85,6 @@
                     android:id="@+id/aboutMeInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
                     android:hint="Add a description"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
@@ -101,11 +96,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
                     android:text="Sports Interests"
-                    android:layout_marginBottom="8dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp" />
             </LinearLayout>
 
-            <!-- Spinners -->
+            <!-- Spinner Rows -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,7 +110,7 @@
 
                 <Spinner
                     android:id="@+id/gymSpinner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -124,7 +119,7 @@
 
                 <Spinner
                     android:id="@+id/experienceSpinner1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_layout"
@@ -140,7 +135,7 @@
 
                 <Spinner
                     android:id="@+id/tennisSpinner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -149,7 +144,7 @@
 
                 <Spinner
                     android:id="@+id/experienceSpinner2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_layout"
@@ -165,7 +160,7 @@
 
                 <Spinner
                     android:id="@+id/pingPongSpinner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -174,17 +169,35 @@
 
                 <Spinner
                     android:id="@+id/experienceSpinner3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_layout"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
+            <!-- Dynamic Spinners Container -->
+            <LinearLayout
+                android:id="@+id/dynamicSpinnerContainer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/addSpinnerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add More"
+                android:textColor="@color/grey"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp" />
         </LinearLayout>
     </ScrollView>
 
-    <!-- Fixed Save Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"

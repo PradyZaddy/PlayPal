@@ -53,4 +53,11 @@ dependencies {
 
     implementation("com.google.android.material:material:1.12.0")
 
+    // From Firebase documentation https://firebase.google.com/docs/database/android/start?_gl=1*l2mri2*_up*MQ..*_ga*NzI0MzE0MzY3LjE3NDI4MDYzMzQ.*_ga_CW55HF8NVT*MTc0MjgwNjMzNC4xLjAuMTc0MjgwNjMzNC4wLjAuMA..
+    // Realtime Database Configuration
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
+    // Add the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-database")
 }

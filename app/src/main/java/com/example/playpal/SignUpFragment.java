@@ -17,18 +17,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.playpal.datatypes.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignUpFragment extends Fragment
 {
+    private DatabaseReference databaseReference;
     LoginFragment loginFragment;
     TextView logInOptionText;
     FirebaseAuth mAuth;
-    EditText firstNameText, lastNameText, emailText, passwordText, confirmPasswordText;
+    EditText firstNameText, lastNameText, nickname, emailText, passwordText, confirmPasswordText;
     Button signUpButton;
     CheckBox checkBox;
 
@@ -41,8 +48,11 @@ public class SignUpFragment extends Fragment
         loginFragment = new LoginFragment();
 
         mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         firstNameText = view.findViewById(R.id.firstNameInput);
         lastNameText = view.findViewById(R.id.lastNameInput);
+        nickname = view.findViewById(R.id.nicknameInput);
         emailText = view.findViewById(R.id.emailInput);
         passwordText = view.findViewById(R.id.passwordInput);
         confirmPasswordText = view.findViewById(R.id.confirmPasswordInput);
@@ -52,8 +62,7 @@ public class SignUpFragment extends Fragment
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), HomeActivity.class);
-                startActivity(intent);
+                signUpWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString());
             }
         });
 
@@ -83,16 +92,22 @@ public class SignUpFragment extends Fragment
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
+                            saveUserDataInDatabase();
                             Intent intent = new Intent(getContext(), HomeActivity.class);
                             startActivity(intent);
-                        }
-
-
-                        else
+                        } else
                         {
                             Toast.makeText(getContext(), "Authentication failed: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            System.out.println(emailText.toString());
+                            System.out.println(task.getException());
                         }
                     }
                 });
+    }
+
+    // TODO: Need to move this method to entity (for better architecture practice).
+    private void saveUserDataInDatabase() {
+        User user = new User(nickname.getText().toString(), firstNameText.getText().toString(), lastNameText.getText().toString());
+        databaseReference.child("users").child(user.getNickname()).setValue(user);
     }
 }

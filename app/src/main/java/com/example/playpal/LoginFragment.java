@@ -55,7 +55,6 @@ public class LoginFragment extends Fragment
                 Intent intent = new Intent(getContext(), HomeActivity.class);
                 startActivity(intent);
 
-                /*
                 if (!email.isEmpty() && !password.isEmpty())
                 {
                     logInWithEmailAndPassword(email, password);
@@ -64,7 +63,6 @@ public class LoginFragment extends Fragment
                 {
                     Toast.makeText(getContext(), "Log In Failed!", Toast.LENGTH_SHORT).show();
                 }
-*/
             }
         });
 

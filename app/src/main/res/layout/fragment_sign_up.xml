@@ -30,23 +30,34 @@
         android:id="@+id/firstNameInput"
         android:layout_width="355dp"
         android:layout_height="52dp"
-        android:paddingLeft="12dp"
-        android:ems="10"
-        android:background="@drawable/input_layout"
-        android:inputType="text"
         android:layout_marginBottom="25dp"
-        android:hint="First name" />
+        android:background="@drawable/input_layout"
+        android:ems="10"
+        android:hint="First name"
+        android:inputType="text"
+        android:paddingLeft="12dp" />
 
     <EditText
         android:id="@+id/lastNameInput"
         android:layout_width="355dp"
         android:layout_height="52dp"
-        android:paddingLeft="12dp"
-        android:ems="10"
-        android:background="@drawable/input_layout"
-        android:inputType="text"
         android:layout_marginBottom="25dp"
-        android:hint="Last Name" />
+        android:background="@drawable/input_layout"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="text"
+        android:paddingLeft="12dp" />
+
+    <EditText
+        android:id="@+id/nicknameInput"
+        android:layout_width="355dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/input_layout"
+        android:ems="10"
+        android:hint="Nickname"
+        android:inputType="text"
+        android:paddingLeft="12dp" />
 
     <EditText
         android:id="@+id/emailInput"

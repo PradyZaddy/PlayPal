@@ -9,11 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileScreenFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileScreenFragment extends Fragment {
 
 
@@ -26,7 +21,8 @@ public class ProfileScreenFragment extends Fragment {
         view.findViewById(R.id.editProfileButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent intent  = new Intent (getContext(), EditProfileActivity.class);
+                startActivity(intent);
             }
         });
 

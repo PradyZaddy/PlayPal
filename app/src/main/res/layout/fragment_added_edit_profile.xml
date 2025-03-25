@@ -32,7 +32,7 @@
                     android:layout_weight="0.5"
                     android:layout_marginRight="8dp"
                     android:scaleType="fitCenter"
-                    tools:src="@drawable/profilepicture" />
+                    android:src="@drawable/profilepicture" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/addPfpButton"

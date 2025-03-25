@@ -21,7 +21,8 @@ public class ProfileScreenFragment extends Fragment {
         view.findViewById(R.id.editProfileButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent  = new Intent (getContext(), EditProfileActivity.class);
+                Intent intent  = new Intent (getContext(), ContainerActivity.class);
+                intent.putExtra("fragmentType", "editProfileFragment");
                 startActivity(intent);
             }
         });
@@ -29,7 +30,8 @@ public class ProfileScreenFragment extends Fragment {
         view.findViewById(R.id.makePostButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MakePostActivity.class);
+                Intent intent  = new Intent (getContext(), ContainerActivity.class);
+                intent.putExtra("fragmentType", "makePostFragment");
                 startActivity(intent);
             }
         });

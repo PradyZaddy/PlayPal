@@ -108,6 +108,7 @@ public class SignUpFragment extends Fragment
     // TODO: Need to move this method to entity (for better architecture practice).
     private void saveUserDataInDatabase() {
         User user = new User(nickname.getText().toString(), firstNameText.getText().toString(), lastNameText.getText().toString());
-        databaseReference.child("users").child(user.getNickname()).setValue(user);
+        //databaseReference.child("users").child(user.getNickname()).setValue(user);
+        System.out.println(databaseReference.child("users").child("john2000").get());
     }
 }

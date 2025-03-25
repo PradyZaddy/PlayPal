@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AddedEditProfileFragment extends Fragment {
+public class EditProfileFragment extends Fragment {
 
     private Button addSpinnerButton;
     private LinearLayout dynamicSpinnerContainer;

@@ -34,9 +34,7 @@ public class HomeActivity extends AppCompatActivity
         MapScreenFragment mapScreenFragment = new MapScreenFragment();
         ProfileScreenFragment profileScreenFragment = new ProfileScreenFragment();
 
-
-        // just for reference
-        AddedEditProfileFragment addedEditProfileFragment = new AddedEditProfileFragment();
+        MakePostFragment makePostFragment = new MakePostFragment();
 
         setCurrentFragment(postsScreenFragment);
 
@@ -47,7 +45,9 @@ public class HomeActivity extends AppCompatActivity
             // Using strings is probably not the best idea, But I needed some solution quick...
             switch (item.toString()) {
                 case "Profile Icon":
-                    setCurrentFragment(profileScreenFragment);
+                    /// FOR TESTING - the original line (commented out) needs to be used instead
+                    //setCurrentFragment(profileScreenFragment);
+                    setCurrentFragment(makePostFragment);
                     break;
                 case "Schedule Icon":
                     setCurrentFragment(scheduleScreenFragment);

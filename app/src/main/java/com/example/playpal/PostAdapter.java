@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -71,7 +70,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
             profilePicture = itemView.findViewById(R.id.imageView);
             closeButton = itemView.findViewById(R.id.closeButton);
-            saveButton = itemView.findViewById(R.id.saveButton);
+            saveButton = itemView.findViewById(R.id.createPostButton);
             yesButton = itemView.findViewById(R.id.yesButton);
         }
     }

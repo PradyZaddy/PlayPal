@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity
 
 
         // just for reference
-        AddedEditProfileFragment addedEditProfileFragment = new AddedEditProfileFragment();
+        EditProfileFragment addedEditProfileFragment = new EditProfileFragment();
 
         setCurrentFragment(postsScreenFragment);
 

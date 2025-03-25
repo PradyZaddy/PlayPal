@@ -3,26 +3,19 @@ package com.example.playpal;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.playpal.databinding.ActivityContainerBinding;
 
 public class ContainerActivity extends AppCompatActivity {
     FrameLayout frameLayout;
-    AddedEditProfileFragment addedEditProfileFragment;
-    AddedMakePostFragment addedMakePostFragment;
+    EditProfileFragment addedEditProfileFragment;
+    MakePostFragment addedMakePostFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +25,8 @@ public class ContainerActivity extends AppCompatActivity {
         Intent receivingIntent = getIntent();
         String fragmentType = receivingIntent.getStringExtra("fragmentType");
 
-        addedEditProfileFragment = new AddedEditProfileFragment();
-        addedMakePostFragment = new AddedMakePostFragment();
+        addedEditProfileFragment = new EditProfileFragment();
+        addedMakePostFragment = new MakePostFragment();
 
         frameLayout = findViewById(R.id.fragmentFramelayout);
         FragmentManager fm = getSupportFragmentManager();
@@ -41,15 +34,29 @@ public class ContainerActivity extends AppCompatActivity {
 
 
         if ("editProfileFragment".equals(fragmentType)) {
+            changeHeaderText("Edit profile");
             ft.replace(R.id.fragmentFramelayout, addedEditProfileFragment);
             ft.commit();
         }
 
         else if ("makePostFragment".equals(fragmentType))
         {
+            changeHeaderText("Make post");
             ft.replace(R.id.fragmentFramelayout, addedMakePostFragment);
             ft.commit();
         }
+
+        findViewById(R.id.arrowButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void changeHeaderText(String text) {
+        TextView headerText = findViewById(R.id.headerText);
+        headerText.setText(text);
     }
 
 }

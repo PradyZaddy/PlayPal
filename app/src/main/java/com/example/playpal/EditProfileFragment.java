@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class AddedEditProfileFragment extends Fragment {
+public class EditProfileFragment extends Fragment {
 
     private Button addSpinnerButton;
     private LinearLayout dynamicSpinnerContainer;
@@ -77,6 +77,9 @@ public class AddedEditProfileFragment extends Fragment {
             }
         });
 
+        // TODO: SEND DATA IN closeButton.OnClickListener() AND CLOSE THE ACTIVITY
+        // here
+
         return view;
     }
 
@@ -95,13 +98,13 @@ public class AddedEditProfileFragment extends Fragment {
         sportParams.setMargins(0, 0, 8, 0);
         sportSpinner.setLayoutParams(sportParams);
         sportSpinner.setBackgroundResource(R.drawable.spinner_layout);
-        sportSpinner.setAdapter(sportAdapter); // ✅ reuse shared adapter
+        sportSpinner.setAdapter(sportAdapter); // reuse shared adapter
 
         Spinner experienceSpinner = new Spinner(requireContext());
         LinearLayout.LayoutParams expParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
         experienceSpinner.setLayoutParams(expParams);
         experienceSpinner.setBackgroundResource(R.drawable.spinner_layout);
-        experienceSpinner.setAdapter(experienceAdapter); // ✅ reuse shared adapter
+        experienceSpinner.setAdapter(experienceAdapter); // reuse shared adapter
 
         row.addView(sportSpinner);
         row.addView(experienceSpinner);

@@ -57,7 +57,10 @@ dependencies {
     // Realtime Database Configuration
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:33.11.0"))
-    // Add the dependency for the Realtime Database library
+    // The dependency for the Realtime Database library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-database")
+    // MapLibre dependency
+    implementation("org.maplibre.gl:android-sdk:11.8.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
 }

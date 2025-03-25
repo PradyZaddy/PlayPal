@@ -26,6 +26,14 @@ public class ProfileScreenFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.makePostButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MakePostActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }

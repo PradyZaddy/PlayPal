@@ -1,4 +1,4 @@
-package com.example.playpal.datatypes;
+package com.example.playpal;
 
 public class SportInterest {
     private String name;

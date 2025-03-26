@@ -1,6 +1,7 @@
 package com.example.playpal;
 public class PostModel
 {
+    private final String DEFAULT_VALUE_PLACEHOLDER = "default_value";
     String name;
     String userName;
     String userDescription;
@@ -24,6 +25,19 @@ public class PostModel
         this.closeButtonImageId = closeButtonImageId;
         this.saveButtonImageId = saveButtonImageId;
         this.yesButtonImageId = yesButtonImageId;
+    }
+
+    public PostModel(String gameTitle, String gameDate, String gameLocation) {
+        this.name = DEFAULT_VALUE_PLACEHOLDER;
+        this.userName = DEFAULT_VALUE_PLACEHOLDER;
+        this.userDescription = DEFAULT_VALUE_PLACEHOLDER;
+        this.profilePictureImageId = R.drawable.profile_picture_placeholder;
+        this.gameTitle = gameTitle; // i.e. sportType, TODO: need to standardize
+        this.gameDate = gameDate; // i.e. time
+        this.gameLocation = gameLocation; // i.e. place
+//        this.closeButtonImageId = closeButtonImageId; // why need this?? shouldn't it be static?
+//        this.saveButtonImageId = saveButtonImageId; // why need this??
+//        this.yesButtonImageId = yesButtonImageId; // why need this??
     }
 
     public String getName() {

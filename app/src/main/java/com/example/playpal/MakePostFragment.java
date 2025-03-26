@@ -10,14 +10,9 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
-import com.example.playpal.datatypes.Post;
-import com.google.firebase.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Random;
 
 public class MakePostFragment extends Fragment {
 

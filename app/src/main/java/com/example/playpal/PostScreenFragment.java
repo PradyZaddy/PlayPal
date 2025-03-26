@@ -1,6 +1,8 @@
 package com.example.playpal;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -26,19 +35,45 @@ public class PostScreenFragment extends Fragment {
 
         postList = new ArrayList<>();
 
-        postList.add(new PostModel("Oleh", "@big_0_notation", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
-        postList.add(new PostModel("Oleh2", "@big_0_notation2", "Top Weirdo Canada 2025", "Table Tennis", "30 March, 1:00pm (Sunday)", "Riverside Park", R.drawable.profilepicture, R.drawable.closeicon, R.drawable.save, R.drawable.checkmark));
+        populateListWithPosts();
+
+        if (postList.isEmpty()) {
+            System.out.println("% postList is empty");
+        }
+
+        // DEBUG
+        for (PostModel postModel : postList) {
+            System.out.println("% Sport type: " + postModel.gameTitle);
+        }
 
         adapter = new PostAdapter(getContext(), postList);
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    public synchronized void populateListWithPosts() {
+        // Fetching all posts
+        Query postsQuery = FirebaseDatabase.getInstance().getReference().child("posts");
+        postsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    Post post = postSnapshot.getValue(Post.class);
+                    System.out.println("post id: " + post.getPostId());
+                    postList.add(new PostModel(post.getSportType(), post.getTime(), post.getPlace()));
+                    // Firebase data fetching is an asynchronous action, so even though populateListWithPosts() is set to sync, it still doesn't fix the problem, so the empty list is assigned to recycler view before it is populated.
+                    // When populateListWithPosts() is called, it immediately returns, and Firebase starts fetching data in the background async.
+                    adapter = new PostAdapter(getContext(), postList);
+                    recyclerView.setAdapter(adapter);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(requireContext(), "Could not fetch posts. ", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

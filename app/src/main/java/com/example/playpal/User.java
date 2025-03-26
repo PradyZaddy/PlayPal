@@ -1,4 +1,4 @@
-package com.example.playpal.datatypes;
+package com.example.playpal;
 
 /**
  * This class serves as an assisting class to facilitate user data storage.

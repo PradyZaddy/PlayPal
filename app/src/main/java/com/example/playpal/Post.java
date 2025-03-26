@@ -1,4 +1,4 @@
-package com.example.playpal.datatypes;
+package com.example.playpal;
 
 public class Post {
     String postId, sportType, proficiency, time, place, description;

@@ -64,10 +64,9 @@ public class PostScreenFragment extends Fragment {
                     postList.add(new PostModel(post.getSportType(), post.getTime(), post.getPlace()));
                     // Firebase data fetching is an asynchronous action, so even though populateListWithPosts() is set to sync, it still doesn't fix the problem, so the empty list is assigned to recycler view before it is populated.
                     // When populateListWithPosts() is called, it immediately returns, and Firebase starts fetching data in the background async.
-                    adapter = new PostAdapter(getContext(), postList);
-                    recyclerView.setAdapter(adapter);
                 }
-
+                adapter = new PostAdapter(getContext(), postList);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override

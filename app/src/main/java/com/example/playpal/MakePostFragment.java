@@ -44,8 +44,6 @@ public class MakePostFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("BEFORE");
-
                 Post post = new Post (
                         // TODO: Bad way to generate an id, but we lack time. Needs to be reimplemented.
                         String.valueOf( (int) (Math.random() * 1000) ),
@@ -55,8 +53,6 @@ public class MakePostFragment extends Fragment {
                         place.getText().toString(),
                         description.getText().toString()
                 );
-
-                System.out.println("CREATING A POST");
                 databaseReference.child(POSTS_COLLECTION).child(post.getPostId()).setValue(post);
             }
         });

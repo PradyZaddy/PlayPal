@@ -34,9 +34,9 @@ public class HomeActivity extends AppCompatActivity
         MapScreenFragment mapScreenFragment = new MapScreenFragment();
         ProfileScreenFragment profileScreenFragment = new ProfileScreenFragment();
 
-
         // just for reference
         EditProfileFragment addedEditProfileFragment = new EditProfileFragment();
+        MakePostFragment makePostFragment = new MakePostFragment();
 
         setCurrentFragment(postsScreenFragment);
 

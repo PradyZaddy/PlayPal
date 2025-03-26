@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginFragment extends Fragment
 {
@@ -52,19 +54,20 @@ public class LoginFragment extends Fragment
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                System.out.println(databaseReference.child("users").child("john2000"));
+
                 Intent intent = new Intent(getContext(), HomeActivity.class);
                 startActivity(intent);
 
-                /*
-                if (!email.isEmpty() && !password.isEmpty())
-                {
-                    logInWithEmailAndPassword(email, password);
-                }
-                else
-                {
-                    Toast.makeText(getContext(), "Log In Failed!", Toast.LENGTH_SHORT).show();
-                }
-*/
+//                if (!email.isEmpty() && !password.isEmpty())
+//                {
+//                    logInWithEmailAndPassword(email, password);
+//                }
+//                else
+//                {
+//                    Toast.makeText(getContext(), "Log In Failed!", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 

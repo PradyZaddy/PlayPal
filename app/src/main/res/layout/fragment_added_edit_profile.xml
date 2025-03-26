@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginVertical="15dp"
         android:layout_marginTop="20dp">
 
         <LinearLayout
@@ -29,8 +30,8 @@
                     android:layout_height="80dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="0.5"
                     android:layout_marginRight="8dp"
+                    android:layout_weight="0.5"
                     android:scaleType="fitCenter"
                     android:src="@drawable/profilepicture" />
 
@@ -51,10 +52,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginLeft="26dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/userName"
@@ -68,10 +69,10 @@
                     android:id="@+id/nameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter name"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@drawable/input_layouts" />
+                    android:background="@drawable/input_layouts"
+                    android:hint="Enter name" />
 
                 <TextView
                     android:id="@+id/aboutMeText"
@@ -85,19 +86,19 @@
                     android:id="@+id/aboutMeInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Add a description"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@drawable/input_layouts" />
+                    android:background="@drawable/input_layouts"
+                    android:hint="Add a description" />
 
                 <TextView
                     android:id="@+id/SportInterests"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Sports Interests"
-                    android:textSize="20sp"
-                    android:layout_marginBottom="8dp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <!-- Spinner Rows -->
@@ -181,20 +182,20 @@
                 android:id="@+id/dynamicSpinnerContainer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginLeft="26dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical" />
 
             <Button
                 android:id="@+id/addSpinnerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add More"
-                android:textColor="@color/grey"
                 android:layout_marginLeft="26dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:text="Add More"
+                android:textColor="@color/grey" />
         </LinearLayout>
     </ScrollView>
 

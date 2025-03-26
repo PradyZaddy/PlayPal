@@ -9,8 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,51 +21,70 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="26dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginHorizontal="18dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/sportTypeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Sport Type"
                     android:textSize="20sp" />
 
-                <Spinner
-                    android:id="@+id/sportTypeInput"
+                <!--                <Spinner-->
+                <!--                    android:id="@+id/sportTypeInput"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginVertical="7dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:background="@drawable/spinner_layout"-->
+                <!--                    android:paddingLeft="6dp"-->
+                <!--                    tools:ignore="TouchTargetSizeCheck" />-->
+                <EditText
+                    android:id="@+id/sportTypeEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/spinner_layout"
-                    android:layout_marginBottom="10dp"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:layout_marginVertical="7dp"
+                    android:background="@drawable/input_layouts"
+                    android:hint="Add a custom sport type"
+                    android:paddingLeft="15dp"
+                    android:textColor="#606060" />
 
                 <TextView
                     android:id="@+id/proficiencyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Proficiency"
                     android:textSize="20sp" />
 
-                <Spinner
-                    android:id="@+id/proficiencySpinner"
+                <!--                <Spinner-->
+                <!--                    android:id="@+id/proficiencySpinner"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginVertical="7dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:background="@drawable/spinner_layout"-->
+                <!--                    android:paddingLeft="6dp"-->
+                <!--                    tools:ignore="TouchTargetSizeCheck" />-->
+                <EditText
+                    android:id="@+id/proficiencyEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/spinner_layout"
-                    android:layout_marginBottom="10dp"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    android:layout_marginVertical="7dp"
+                    android:background="@drawable/input_layouts"
+                    android:hint="Beginner / Intermediate / Advanced / Expert"
+                    android:paddingLeft="15dp"
+                    android:textColor="#606060" />
 
                 <TextView
                     android:id="@+id/meetingTimeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Meeting time"
                     android:textSize="20sp" />
@@ -75,15 +93,17 @@
                     android:id="@+id/timeInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
+                    android:background="@drawable/input_layouts"
                     android:hint="Add a meeting time"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/input_layouts" />
+                    android:paddingLeft="15dp"
+                    android:textColor="#606060" />
 
                 <TextView
                     android:id="@+id/meetingPlaceText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Meeting place"
                     android:textSize="20sp" />
@@ -92,28 +112,30 @@
                     android:id="@+id/meetingPlaceInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
+                    android:background="@drawable/input_layouts"
                     android:hint="Add a meeting place"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/input_layouts" />
+                    android:paddingLeft="15dp"
+                    android:textColor="#606060" />
 
                 <TextView
                     android:id="@+id/sportsDescriptionText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
                     android:fontFamily="sans-serif-black"
                     android:text="Sports description"
-                    android:textSize="20sp"
-                    android:layout_marginBottom="5dp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/sportsDescriptionInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="7dp"
+                    android:background="@drawable/input_layouts"
                     android:hint="Add a description (optional)"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/input_layouts" />
+                    android:paddingLeft="15dp"
+                    android:textColor="#606060" />
 
 
             </LinearLayout>
@@ -125,9 +147,11 @@
         android:id="@+id/createPostButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/green"
         android:text="Create Post"
         android:textColor="@color/white"
-        android:backgroundTint="@color/green"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="16dp" />
+        android:textSize="15sp"
+        app:cornerRadius="7dp" />
 </FrameLayout>

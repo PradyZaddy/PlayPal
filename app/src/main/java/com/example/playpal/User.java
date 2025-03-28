@@ -1,27 +1,25 @@
 package com.example.playpal;
 
-/**
- * This class serves as an assisting class to facilitate user data storage.
- */
-public class User {
-    // TODO: maybe store aboutMe and sportInterests - not sure if applicable for our first version.
-    // User is able to update their aboutMe and sportInterests in the EditProfile screen
-    private String nickname, firstName, lastName, aboutMe;
-    private SportInterest[] sportInterests;
+import java.util.ArrayList;
 
-    // Need to keep one empty constructor for the Firebase data storage.
-    public User() {
-    }
+public class User
+{
+    String username, firstName, lastName, userDescription;
+    int[] postIdList;
+    ArrayList<SportInterest> sportInterestList;
 
-    public User(String nickname, String firstName, String lastName) {
-        this.nickname = nickname;
+    public User(String username, String firstName, String lastName, String userDescription, int[] postIdList, ArrayList<SportInterest> sportInterestList)
+    {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userDescription = userDescription;
+        this.postIdList = postIdList;
+        this.sportInterestList = sportInterestList;
     }
 
-    // Getters are used during setValue(new User(...))
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
     public String getFirstName() {
@@ -31,4 +29,17 @@ public class User {
     public String getLastName() {
         return lastName;
     }
+
+    public String getUserDescription() {
+        return userDescription;
+    }
+
+    public int[] getPostIdList() {
+        return postIdList;
+    }
+
+    public ArrayList<SportInterest> getSportInterestList() {
+        return sportInterestList;
+    }
+
 }

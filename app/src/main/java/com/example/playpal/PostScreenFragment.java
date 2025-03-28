@@ -27,7 +27,8 @@ public class PostScreenFragment extends Fragment {
     ArrayList<PostModel> postList;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
@@ -36,37 +37,33 @@ public class PostScreenFragment extends Fragment {
         postList = new ArrayList<>();
 
         populateListWithPosts();
-
-        if (postList.isEmpty()) {
-            System.out.println("% postList is empty");
-        }
-
-        // DEBUG
-        for (PostModel postModel : postList) {
-            System.out.println("% Sport type: " + postModel.gameTitle);
-        }
-
         adapter = new PostAdapter(getContext(), postList);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
+
     public synchronized void populateListWithPosts() {
         // Fetching all posts
         Query postsQuery = FirebaseDatabase.getInstance().getReference().child("posts");
-        postsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+        postsQuery.addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot postSnapshot : snapshot.getChildren()) {
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                for(DataSnapshot postSnapshot : snapshot.getChildren())
+                {
                     Post post = postSnapshot.getValue(Post.class);
                     System.out.println("post id: " + post.getPostId());
-                    postList.add(new PostModel(post.getSportType(), post.getTime(), post.getPlace()));
+                    postList.add(new PostModel(post.getSportType(), post.getMeetingDateTime(), post.getMeetingLocation()));
                     // Firebase data fetching is an asynchronous action, so even though populateListWithPosts() is set to sync, it still doesn't fix the problem, so the empty list is assigned to recycler view before it is populated.
                     // When populateListWithPosts() is called, it immediately returns, and Firebase starts fetching data in the background async.
-                    adapter = new PostAdapter(getContext(), postList);
-                    recyclerView.setAdapter(adapter);
+
                 }
+                adapter = new PostAdapter(getContext(), postList);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
 
             }
 
@@ -76,4 +73,5 @@ public class PostScreenFragment extends Fragment {
             }
         });
     }
+
 }

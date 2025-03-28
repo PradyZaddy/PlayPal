@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,21 +41,39 @@ public class MakePostFragment extends Fragment {
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+
         Button button = view.findViewById(R.id.createPostButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                System.out.println("BEFORE");
+
+                FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                String userId;
+
+                if (firebaseUser == null)
+                {
+                    System.out.println("No user here broski!");
+                    return;
+                }
+
+                userId = firebaseUser.getUid();
+
                 Post post = new Post (
-                        // TODO: Bad way to generate an id, but we lack time. Needs to be reimplemented.
-                        String.valueOf( (int) (Math.random() * 1000) ),
-                        sportType.getText().toString(),
-                        proficiency.getText().toString(),
+                        userId,
                         time.getText().toString(),
                         place.getText().toString(),
-                        description.getText().toString()
+                        description.getText().toString(),
+                        sportType.getText().toString(),
+                        proficiency.getText().toString()
+
                 );
-                databaseReference.child(POSTS_COLLECTION).child(post.getPostId()).setValue(post);
+
+
+                System.out.println("CREATING A POST");
+                databaseReference.child(POSTS_COLLECTION).child(+++).setValue(post); // will call a function to generate an ID
             }
         });
         return view;

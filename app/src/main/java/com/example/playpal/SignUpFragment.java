@@ -88,7 +88,7 @@ public class SignUpFragment extends Fragment
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
-                            saveUserDataInDatabase();
+                            // saveUserDataInDatabase();
                             Intent intent = new Intent(getContext(), HomeActivity.class);
                             startActivity(intent);
                         } else
@@ -102,9 +102,9 @@ public class SignUpFragment extends Fragment
     }
 
     // TODO: Need to move this method to entity (for better architecture practice).
-    private void saveUserDataInDatabase() {
-        User user = new User(nickname.getText().toString(), firstNameText.getText().toString(), lastNameText.getText().toString());
-        //databaseReference.child("users").child(user.getNickname()).setValue(user);
-        System.out.println(databaseReference.child("users").child("john2000").get());
-    }
+   // private void saveUserDataInDatabase() {
+     //   User user = new User(nickname.getText().toString(), firstNameText.getText().toString(), lastNameText.getText().toString());
+       // //databaseReference.child("users").child(user.getNickname()).setValue(user);
+        //System.out.println(databaseReference.child("users").child("john2000").get());
+    //}
 }

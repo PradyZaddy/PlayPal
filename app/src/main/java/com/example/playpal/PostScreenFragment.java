@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -45,31 +46,61 @@ public class PostScreenFragment extends Fragment {
 
 
     public synchronized void populateListWithPosts() {
-        // Fetching all posts
         Query postsQuery = FirebaseDatabase.getInstance().getReference().child("posts");
-        postsQuery.addListenerForSingleValueEvent(new ValueEventListener()
-        {
+        postsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
-                for(DataSnapshot postSnapshot : snapshot.getChildren())
-                {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                postList.clear(); // Clear old data to avoid duplicates
+
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Post post = postSnapshot.getValue(Post.class);
-                    System.out.println("post id: " + post.getPostId());
-                    postList.add(new PostModel(post.getSportType(), post.getMeetingDateTime(), post.getMeetingLocation()));
-                    // Firebase data fetching is an asynchronous action, so even though populateListWithPosts() is set to sync, it still doesn't fix the problem, so the empty list is assigned to recycler view before it is populated.
-                    // When populateListWithPosts() is called, it immediately returns, and Firebase starts fetching data in the background async.
+                    if (post == null) continue;
+
+                    String userId = post.getUserId();
+
+                    // Fetching user info from users
+                    DatabaseReference userRef = FirebaseDatabase.getInstance()
+                            .getReference("userList")
+                            .child(userId);
+
+                    userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot userSnapshot) {
+                            String name = userSnapshot.child("firstName").getValue(String.class);
+                            String userName = userSnapshot.child("username").getValue(String.class);
+
+                            // Create a PostModel with user info and post data
+                            PostModel postModel = new PostModel(
+                                    userId,
+                                    post.getSportType(),
+                                    post.getMeetingDateTime(),
+                                    post.getMeetingLocation(),
+                                    name != null ? name : "Unknown",
+                                    userName != null ? userName : "@anonymous"
+                            );
+
+                            postList.add(postModel);
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            // Handle error if needed
+                        }
+                    });
                 }
+
+                // Set adapter only once
                 adapter = new PostAdapter(getContext(), postList);
                 recyclerView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(requireContext(), "Could not fetch posts. ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Could not fetch posts.", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
 }

@@ -31,7 +31,7 @@ public class SignUpFragment extends Fragment
     LoginFragment loginFragment;
     TextView logInOptionText;
     FirebaseAuth mAuth;
-    EditText firstNameText, lastNameText, nickname, emailText, passwordText, confirmPasswordText;
+    EditText firstNameText, lastNameText , usernameText, emailText, passwordText, confirmPasswordText;
     Button signUpButton;
     CheckBox checkBox;
 
@@ -48,7 +48,7 @@ public class SignUpFragment extends Fragment
 
         firstNameText = view.findViewById(R.id.firstNameInput);
         lastNameText = view.findViewById(R.id.lastNameInput);
-        nickname = view.findViewById(R.id.nicknameInput);
+        usernameText = view.findViewById(R.id.userNameInput);
         emailText = view.findViewById(R.id.emailInput);
         passwordText = view.findViewById(R.id.passwordInput);
         confirmPasswordText = view.findViewById(R.id.confirmPasswordInput);
@@ -88,7 +88,12 @@ public class SignUpFragment extends Fragment
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(getContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
-                            // saveUserDataInDatabase();
+
+
+                            saveUserDataInDatabase();
+
+
+
                             Intent intent = new Intent(getContext(), HomeActivity.class);
                             startActivity(intent);
                         } else
@@ -101,10 +106,26 @@ public class SignUpFragment extends Fragment
                 });
     }
 
-    // TODO: Need to move this method to entity (for better architecture practice).
-   // private void saveUserDataInDatabase() {
-     //   User user = new User(nickname.getText().toString(), firstNameText.getText().toString(), lastNameText.getText().toString());
-       // //databaseReference.child("users").child(user.getNickname()).setValue(user);
-        //System.out.println(databaseReference.child("users").child("john2000").get());
-    //}
+    //TODO: Need to move this method to entity (for better architecture practice).
+    private void saveUserDataInDatabase() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser == null) return;
+
+        String uid = currentUser.getUid();
+
+        User user = new User(
+                firstNameText.getText().toString(),
+                usernameText.getText().toString()
+        );
+
+        databaseReference.child("userList").child(uid).setValue(user)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getContext(), "User data saved!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "Failed to save user data.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }

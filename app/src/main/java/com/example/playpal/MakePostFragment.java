@@ -1,5 +1,6 @@
 package com.example.playpal;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -73,7 +74,10 @@ public class MakePostFragment extends Fragment {
 
 
                 System.out.println("CREATING A POST");
-                databaseReference.child(POSTS_COLLECTION).child(+++).setValue(post); // will call a function to generate an ID
+                databaseReference.child(POSTS_COLLECTION).child(post.getUserId()).setValue(post); // will call a function to generate an ID
+
+                Intent intent = new Intent(getContext(), HomeActivity.class);
+                startActivity(intent);
             }
         });
         return view;

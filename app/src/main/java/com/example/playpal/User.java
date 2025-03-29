@@ -18,6 +18,12 @@ public class User
         this.sportInterestList = sportInterestList;
     }
 
+    public User (String firstName, String username)
+    {
+        this.firstName = firstName;
+        this.username = username;
+    }
+
     public String getUsername() {
         return username;
     }

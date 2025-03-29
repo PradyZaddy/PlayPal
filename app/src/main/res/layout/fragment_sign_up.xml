@@ -49,13 +49,13 @@
         android:paddingLeft="12dp" />
 
     <EditText
-        android:id="@+id/nicknameInput"
+        android:id="@+id/userNameInput"
         android:layout_width="355dp"
         android:layout_height="52dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/input_layout"
         android:ems="10"
-        android:hint="Nickname"
+        android:hint="Username"
         android:inputType="text"
         android:paddingLeft="12dp" />
 

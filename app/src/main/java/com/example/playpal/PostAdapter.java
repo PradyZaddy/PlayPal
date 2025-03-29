@@ -1,17 +1,26 @@
 package com.example.playpal;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
@@ -46,10 +55,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         // Set image resources
         holder.profilePicture.setImageResource(post.getProfilePictureImageId());
         holder.closeButton.setImageResource(post.getCloseButtonImageId());
-        holder.saveButton.setImageResource(post.getSaveButtonImageId());
-        holder.yesButton.setImageResource(post.getYesButtonImageId());
+        holder.yesButton.setImageResource(R.drawable.checkmark);
 
-        // need to put button handler in here
+        holder.yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // used for debugging whether its working or not
+                //Log.e("Clicking?", "Click has been registered");
+                String senderId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String postOwnerId = post.getUserId();
+
+                DatabaseReference notifRef = FirebaseDatabase.getInstance()
+                        .getReference("postResponseList")
+                        .child(postOwnerId)
+                        .push(); // creates a unique key
+
+                Map<String, Object> data = new HashMap<>();
+                data.put("senderId", senderId);
+                notifRef.setValue(data);
+            }
+        });
     }
 
     @Override
@@ -59,7 +84,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     public static class PostViewHolder extends RecyclerView.ViewHolder {
         TextView name, userName, userDescription, gameTitle, gameDate, gameLocation;
-        ImageView profilePicture, closeButton, saveButton, yesButton;
+        ImageView profilePicture, closeButton;
+        ImageButton yesButton;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,7 +98,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
             profilePicture = itemView.findViewById(R.id.imageView);
             closeButton = itemView.findViewById(R.id.closeButton);
-            saveButton = itemView.findViewById(R.id.createPostButton);
             yesButton = itemView.findViewById(R.id.yesButton);
         }
     }

@@ -20,6 +20,7 @@ public class EditProfileFragment extends Fragment {
 
 
     private Button addSpinnerButton;
+    Button saveButton;
     Button createPostButton;
     private LinearLayout dynamicSpinnerContainer;
 
@@ -38,7 +39,7 @@ public class EditProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_added_edit_profile, container, false);
 
-        createPostButton = view.findViewById(R.id.createPostButton);
+        saveButton = view.findViewById(R.id.saveButton);
 
         // Initialize views
         addSpinnerButton = view.findViewById(R.id.addSpinnerButton);
@@ -88,7 +89,7 @@ public class EditProfileFragment extends Fragment {
         });
 
 
-        createPostButton.setOnClickListener(new View.OnClickListener()
+        saveButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
